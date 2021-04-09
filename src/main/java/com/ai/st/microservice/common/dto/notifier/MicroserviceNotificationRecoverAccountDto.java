@@ -13,13 +13,10 @@ public class MicroserviceNotificationRecoverAccountDto implements Serializable {
 
     private String code;
     private String expirationDate;
+    private String username;
 
     private String siteURL;
     private String siteEmail;
-
-    public MicroserviceNotificationRecoverAccountDto() {
-
-    }
 
     public Long getUserCode() {
         return userCode;
@@ -89,18 +86,11 @@ public class MicroserviceNotificationRecoverAccountDto implements Serializable {
         return "Notificación Sistema de Transición Barrido Predial – Recuperar Cuenta";
     }
 
-    public String getBody() {
-        String html = "";
-        html += "<div>El Sistema de Transición para el Barrido Predial en Colombia le informa:</div><br>";
-        html += "<div>Que se ha generado un código único " + code
-                + " para que pueda recupera su cuenta, el cual deberá ingresar junto con su nueva contraseña y el cual expirará "
-                + this.expirationDate + " </div><br>";
-
-        html += "<div>Nota: Cualquier inquietud o inconveniente en el ingreso a la plataforma por favor comunicarse con el siguiente correo: "
-                + siteEmail + "</div>";
-        html += "<br><div>--</div>";
-        html += "SISTEMA DE TRANSICIÓN</div>";
-        return html;
+    public String getUsername() {
+        return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
