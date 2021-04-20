@@ -15,7 +15,7 @@ $ mvn install:install-file \
    -Dfile=/path/to/target/st-common-1.0.0.jar  \
    -DgroupId=com.ai.st.microservice.common \
    -DartifactId=st-common \
-   -Dversion=0.0.1-SNAPSHOT \
+   -Dversion=1.0.0 \
    -Dpackaging=jar \
    -DgeneratePom=true
 ```
