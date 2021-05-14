@@ -9,6 +9,10 @@ public class MicroserviceRoleDto implements Serializable {
     private Long id;
     private String name;
 
+    public MicroserviceRoleDto() {
+
+    }
+
     public MicroserviceRoleDto(Long id, String name) {
         super();
         this.id = id;

@@ -53,4 +53,11 @@ public class AdministrationBusiness {
         return roleAdministrator != null;
     }
 
+    public boolean isOperator(MicroserviceUserDto userDto) {
+        MicroserviceRoleDto roleManager = userDto.getRoles().stream()
+                .filter(roleDto -> roleDto.getId().equals(RoleBusiness.ROLE_OPERATOR)).findAny().orElse(null);
+
+        return roleManager != null;
+    }
+
 }
