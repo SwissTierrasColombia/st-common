@@ -14,6 +14,7 @@ public class MicroserviceValidationDto implements Serializable {
     private Long userCode;
     private String observations;
     private List<String> errors;
+    private String referenceId;
 
     public Boolean getIsValid() {
         return isValid;
@@ -69,5 +70,13 @@ public class MicroserviceValidationDto implements Serializable {
 
     public void setErrors(List<String> errors) {
         this.errors = errors;
+    }
+
+    public String getReferenceId() {
+        return referenceId;
+    }
+
+    public void setReferenceId(String referenceId) {
+        this.referenceId = referenceId;
     }
 }
