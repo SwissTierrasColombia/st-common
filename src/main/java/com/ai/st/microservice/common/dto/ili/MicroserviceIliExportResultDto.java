@@ -1,55 +1,69 @@
 package com.ai.st.microservice.common.dto.ili;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class MicroserviceIliExportResultDto implements Serializable {
 
-	private static final long serialVersionUID = 3333909202329876777L;
+    private static final long serialVersionUID = 3333909202329876777L;
 
-	private boolean status;
-	private Long integrationId;
-	private String pathFile;
-	private MicroserviceIntegrationStatDto stats;
-	private String modelVersion;
+    private boolean status;
+    private Long integrationId;
+    private String pathFile;
+    private MicroserviceIntegrationStatDto stats;
+    private String modelVersion;
+    private List<String> errors;
 
-	public boolean isStatus() {
-		return status;
-	}
+    public MicroserviceIliExportResultDto() {
 
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
+    }
 
-	public Long getIntegrationId() {
-		return integrationId;
-	}
+    public boolean isStatus() {
+        return status;
+    }
 
-	public void setIntegrationId(Long integrationId) {
-		this.integrationId = integrationId;
-	}
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
-	public String getPathFile() {
-		return pathFile;
-	}
+    public Long getIntegrationId() {
+        return integrationId;
+    }
 
-	public void setPathFile(String pathFile) {
-		this.pathFile = pathFile;
-	}
+    public void setIntegrationId(Long integrationId) {
+        this.integrationId = integrationId;
+    }
 
-	public MicroserviceIntegrationStatDto getStats() {
-		return stats;
-	}
+    public String getPathFile() {
+        return pathFile;
+    }
 
-	public void setStats(MicroserviceIntegrationStatDto stats) {
-		this.stats = stats;
-	}
+    public void setPathFile(String pathFile) {
+        this.pathFile = pathFile;
+    }
 
-	public String getModelVersion() {
-		return modelVersion;
-	}
+    public MicroserviceIntegrationStatDto getStats() {
+        return stats;
+    }
 
-	public void setModelVersion(String modelVersion) {
-		this.modelVersion = modelVersion;
-	}
+    public void setStats(MicroserviceIntegrationStatDto stats) {
+        this.stats = stats;
+    }
+
+    public String getModelVersion() {
+        return modelVersion;
+    }
+
+    public void setModelVersion(String modelVersion) {
+        this.modelVersion = modelVersion;
+    }
+
+    public List<String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(List<String> errors) {
+        this.errors = errors;
+    }
 
 }

@@ -4,11 +4,13 @@ import com.ai.st.microservice.common.clients.ManagerFeignClient;
 import com.ai.st.microservice.common.dto.managers.MicroserviceManagerDto;
 import com.ai.st.microservice.common.dto.managers.MicroserviceManagerProfileDto;
 import com.ai.st.microservice.common.dto.managers.MicroserviceManagerUserDto;
-import feign.FeignException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import feign.FeignException;
 
 import java.util.ArrayList;
 import java.util.List;
