@@ -16,7 +16,7 @@ public class MicroserviceDeliveryDto implements Serializable {
     private Boolean isActive;
     private String observations;
     private MicroserviceOperatorDto operator;
-    private List<MicroserviceSupplyDeliveryDto> supplies;
+    private List<? extends MicroserviceSupplyDeliveryDto> supplies;
     private String downloadReportUrl;
 
     public MicroserviceDeliveryDto() {
@@ -71,11 +71,11 @@ public class MicroserviceDeliveryDto implements Serializable {
         this.operator = operator;
     }
 
-    public List<MicroserviceSupplyDeliveryDto> getSupplies() {
+    public List<? extends MicroserviceSupplyDeliveryDto> getSupplies() {
         return supplies;
     }
 
-    public void setSupplies(List<MicroserviceSupplyDeliveryDto> supplies) {
+    public void setSupplies(List<? extends MicroserviceSupplyDeliveryDto> supplies) {
         this.supplies = supplies;
     }
 

@@ -14,8 +14,8 @@ public class MicroserviceRequestDto implements Serializable {
     private Date deadline;
     private String observations;
     private MicroserviceRequestStateDto requestState;
-    private List<MicroserviceSupplyRequestedDto> suppliesRequested;
-    private List<MicroserviceEmitterDto> emitters;
+    private List<? extends MicroserviceSupplyRequestedDto> suppliesRequested;
+    private List<? extends MicroserviceEmitterDto> emitters;
     private MicroserviceProviderDto provider;
     private String municipalityCode;
     private String packageLabel;
@@ -67,19 +67,19 @@ public class MicroserviceRequestDto implements Serializable {
         this.requestState = requestState;
     }
 
-    public List<MicroserviceSupplyRequestedDto> getSuppliesRequested() {
+    public List<? extends MicroserviceSupplyRequestedDto> getSuppliesRequested() {
         return suppliesRequested;
     }
 
-    public void setSuppliesRequested(List<MicroserviceSupplyRequestedDto> suppliesRequested) {
+    public void setSuppliesRequested(List<? extends MicroserviceSupplyRequestedDto> suppliesRequested) {
         this.suppliesRequested = suppliesRequested;
     }
 
-    public List<MicroserviceEmitterDto> getEmitters() {
+    public List<? extends MicroserviceEmitterDto> getEmitters() {
         return emitters;
     }
 
-    public void setEmitters(List<MicroserviceEmitterDto> emitters) {
+    public void setEmitters(List<? extends MicroserviceEmitterDto> emitters) {
         this.emitters = emitters;
     }
 

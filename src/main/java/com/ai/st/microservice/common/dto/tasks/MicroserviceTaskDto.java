@@ -17,7 +17,7 @@ public class MicroserviceTaskDto implements Serializable {
     private Date createdAt;
     private Date closingDate;
     private MicroserviceTaskStateDto taskState;
-    private List<MicroserviceTaskMemberDto> members;
+    private List<? extends MicroserviceTaskMemberDto> members;
     private List<MicroserviceTaskCategoryDto> categories;
     private List<MicroserviceTaskMetadataDto> metadata;
     private List<MicroserviceTaskStepDto> steps;
@@ -85,11 +85,11 @@ public class MicroserviceTaskDto implements Serializable {
         this.taskState = taskState;
     }
 
-    public List<MicroserviceTaskMemberDto> getMembers() {
+    public List<? extends MicroserviceTaskMemberDto> getMembers() {
         return members;
     }
 
-    public void setMembers(List<MicroserviceTaskMemberDto> members) {
+    public void setMembers(List<? extends MicroserviceTaskMemberDto> members) {
         this.members = members;
     }
 

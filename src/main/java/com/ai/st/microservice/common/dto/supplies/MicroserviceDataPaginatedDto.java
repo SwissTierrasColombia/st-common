@@ -12,7 +12,7 @@ public class MicroserviceDataPaginatedDto implements Serializable {
 	private Long totalElements;
 	private Integer totalPages;
 	private Integer size;
-	private List<MicroserviceSupplyDto> items;
+	private List<? extends MicroserviceSupplyDto> items;
 
 	public MicroserviceDataPaginatedDto() {
 
@@ -26,11 +26,11 @@ public class MicroserviceDataPaginatedDto implements Serializable {
 		this.number = number;
 	}
 
-	public List<MicroserviceSupplyDto> getItems() {
+	public List<? extends MicroserviceSupplyDto> getItems() {
 		return items;
 	}
 
-	public void setItems(List<MicroserviceSupplyDto> items) {
+	public void setItems(List<? extends MicroserviceSupplyDto> items) {
 		this.items = items;
 	}
 
