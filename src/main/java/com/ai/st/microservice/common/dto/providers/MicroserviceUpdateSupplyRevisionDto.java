@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class MicroserviceUpdateSupplyRevisionDto implements Serializable {
 
 	private static final long serialVersionUID = 1089574319167589543L;
+
 	private Long finishedBy;
 
 	public MicroserviceUpdateSupplyRevisionDto() {

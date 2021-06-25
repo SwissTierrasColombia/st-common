@@ -9,19 +9,22 @@ public class MicroserviceSupplyRequestedDto implements Serializable {
 
     private Long id;
     private String description;
+    private String errors;
+    private MicroserviceRequestDto request;
     private MicroserviceTypeSupplyDto typeSupply;
     private Date createdAt;
     private Boolean delivered;
+    private MicroserviceSupplyRequestedStateDto state;
     private Date deliveredAt;
     private String justification;
-    private MicroserviceSupplyRequestedStateDto state;
     private String modelVersion;
-    private Boolean canUpload;
     private Long deliveredBy;
     private String url;
     private String observations;
     private String ftp;
-    private MicroserviceRequestDto request;
+    private Boolean isValid;
+    private String log;
+    private String extraFile;
 
     public MicroserviceSupplyRequestedDto() {
 
@@ -99,14 +102,6 @@ public class MicroserviceSupplyRequestedDto implements Serializable {
         this.modelVersion = modelVersion;
     }
 
-    public Boolean getCanUpload() {
-        return canUpload;
-    }
-
-    public void setCanUpload(Boolean canUpload) {
-        this.canUpload = canUpload;
-    }
-
     public Long getDeliveredBy() {
         return deliveredBy;
     }
@@ -145,6 +140,38 @@ public class MicroserviceSupplyRequestedDto implements Serializable {
 
     public void setRequest(MicroserviceRequestDto request) {
         this.request = request;
+    }
+
+    public String getErrors() {
+        return errors;
+    }
+
+    public void setErrors(String errors) {
+        this.errors = errors;
+    }
+
+    public Boolean getValid() {
+        return isValid;
+    }
+
+    public void setValid(Boolean valid) {
+        isValid = valid;
+    }
+
+    public String getLog() {
+        return log;
+    }
+
+    public void setLog(String log) {
+        this.log = log;
+    }
+
+    public String getExtraFile() {
+        return extraFile;
+    }
+
+    public void setExtraFile(String extraFile) {
+        this.extraFile = extraFile;
     }
 
 }

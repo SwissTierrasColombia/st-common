@@ -16,8 +16,8 @@ public class MicroserviceCreateRequestDto implements Serializable {
 	private String packageLabel;
 
 	public MicroserviceCreateRequestDto() {
-		supplies = new ArrayList<MicroserviceTypeSupplyRequestedDto>();
-		emitters = new ArrayList<MicroserviceRequestEmitterDto>();
+		supplies = new ArrayList<>();
+		emitters = new ArrayList<>();
 	}
 
 	public String getDeadline() {

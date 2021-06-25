@@ -1,6 +1,6 @@
 package com.ai.st.microservice.common.clients;
 
-import com.ai.st.microservice.common.dto.workspaces.MicroserviceWorkspaceDto;
+import com.ai.st.microservice.common.dto.workspaces.MicroserviceMunicipalityDto;
 import com.ai.st.microservice.common.dto.workspaces.MicroserviceWorkspaceOperatorDto;
 import feign.Feign;
 import feign.codec.Encoder;
@@ -21,6 +21,9 @@ public interface WorkspaceFeignClient {
 
     @GetMapping("/api/workspaces/v1/workspaces/operators/{operatorCode}")
     List<MicroserviceWorkspaceOperatorDto> findWorkspacesByOperator(@PathVariable("operatorCode") Long operatorCode);
+
+    @GetMapping("/api/workspaces/v1/municipalities/code/{municipalityCode}")
+    MicroserviceMunicipalityDto findMunicipalityByCode(@PathVariable("municipalityCode") String municipalityCode);
 
     class Configuration {
 
