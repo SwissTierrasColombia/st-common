@@ -1,9 +1,6 @@
 package com.ai.st.microservice.common.clients;
 
-import com.ai.st.microservice.common.dto.reports.MicroserviceReportInformationDto;
-import com.ai.st.microservice.common.dto.reports.MicroserviceRequestReportDeliveryACDto;
-import com.ai.st.microservice.common.dto.reports.MicroserviceRequestReportDeliveryManagerDto;
-import com.ai.st.microservice.common.dto.reports.MicroserviceRequestReportDownloadSupplyDto;
+import com.ai.st.microservice.common.dto.reports.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -34,6 +31,10 @@ public interface ReportFeignClient {
     @PostMapping(value = "/api/reports/v1/reports/delivery-manager", consumes = APPLICATION_JSON_VALUE)
     MicroserviceReportInformationDto createReportDeliveryManager(
             @RequestBody MicroserviceRequestReportDeliveryManagerDto data);
+
+    @PostMapping(value = "/api/reports/v1/reports/supplies-snr", consumes = APPLICATION_JSON_VALUE)
+    MicroserviceReportInformationDto createReportSuppliesSNR(
+            @RequestBody MicroserviceRequestReportSNRSuppliesDto data);
 
     class Configuration {
 
