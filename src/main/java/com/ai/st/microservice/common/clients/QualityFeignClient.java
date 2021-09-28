@@ -21,6 +21,18 @@ public interface QualityFeignClient {
             @PathVariable("deliveryProductId") Long deliveryProductId,
             @PathVariable("attachmentId") Long attachmentId);
 
+    @PatchMapping("/api/quality/v1/deliveries/{deliveryId}/products/{deliveryProductId}/attachments/{attachmentId}/status/quality-process-finished")
+    void udpdateXTFStatusToQualityProcessFinished(
+            @PathVariable("deliveryId") Long deliveryId,
+            @PathVariable("deliveryProductId") Long deliveryProductId,
+            @PathVariable("attachmentId") Long attachmentId);
+
+    @PatchMapping("/api/quality/v1/deliveries/{deliveryId}/products/{deliveryProductId}/attachments/{attachmentId}/status/accepted")
+    void updateXTFStatusToAccepted(
+            @PathVariable("deliveryId") Long deliveryId,
+            @PathVariable("deliveryProductId") Long deliveryProductId,
+            @PathVariable("attachmentId") Long attachmentId);
+
     class Configuration {
 
         @Bean
