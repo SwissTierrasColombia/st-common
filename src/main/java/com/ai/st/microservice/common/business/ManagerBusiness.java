@@ -58,9 +58,9 @@ public final class ManagerBusiness {
         try {
             List<MicroserviceManagerProfileDto> managerProfiles = managerClient.findProfilesByUser(userCode);
             MicroserviceManagerProfileDto profileDirector = managerProfiles.stream()
-                    .filter(profileDto -> profileDto.getId().equals(RoleBusiness.SUB_ROLE_DIRECTOR)).findAny()
+                    .filter(profileDto -> profileDto.getId().equals(RoleBusiness.SUB_ROLE_DIRECTOR_MANAGER)).findAny()
                     .orElse(null);
-            if (profileDirector instanceof MicroserviceManagerProfileDto) {
+            if (profileDirector != null) {
                 isDirector = true;
             }
         } catch (FeignException e) {

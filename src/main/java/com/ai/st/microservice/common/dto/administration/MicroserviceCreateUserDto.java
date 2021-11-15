@@ -13,6 +13,7 @@ public class MicroserviceCreateUserDto implements Serializable {
     private String username;
     private String email;
     private String password;
+    private boolean enabled;
     private List<Long> roles;
 
     public MicroserviceCreateUserDto() {
@@ -67,4 +68,11 @@ public class MicroserviceCreateUserDto implements Serializable {
         this.roles = roles;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 }
