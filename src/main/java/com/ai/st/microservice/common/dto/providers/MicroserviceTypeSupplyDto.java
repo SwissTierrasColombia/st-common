@@ -21,7 +21,7 @@ public class MicroserviceTypeSupplyDto implements Serializable {
 	private MicroserviceProviderDto provider;
 
 	public MicroserviceTypeSupplyDto() {
-		this.extensions = new ArrayList<MicroserviceExtensionDto>();
+		this.extensions = new ArrayList<>();
 	}
 
 	public Long getId() {

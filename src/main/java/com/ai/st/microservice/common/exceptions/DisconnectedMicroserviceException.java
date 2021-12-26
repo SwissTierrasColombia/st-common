@@ -4,7 +4,7 @@ public class DisconnectedMicroserviceException extends Exception {
 
 	private static final long serialVersionUID = 3230476461126206019L;
 
-	private String messageError;
+	private final String messageError;
 
 	public DisconnectedMicroserviceException(String message) {
 		super();

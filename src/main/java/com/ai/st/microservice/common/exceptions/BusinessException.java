@@ -4,7 +4,7 @@ public class BusinessException extends Exception {
 
 	private static final long serialVersionUID = -6306603143465394875L;
 
-	private String messageError;
+	private final String messageError;
 
 	public BusinessException(String message) {
 		super();

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MicroserviceValidationDto implements Serializable {
 
-    private static final long serialVersionUID = 1185381344046839161L;
+    private static final long serialVersionUID = -1404342333733043427L;
 
     private Boolean isValid;
     private Long requestId;
@@ -14,6 +14,10 @@ public class MicroserviceValidationDto implements Serializable {
     private Long userCode;
     private String observations;
     private List<String> errors;
+    private Boolean isGeometryValidated;
+    private Boolean skipErrors;
+    private String log;
+    private String referenceId;
 
     public Boolean getIsValid() {
         return isValid;
@@ -69,5 +73,37 @@ public class MicroserviceValidationDto implements Serializable {
 
     public void setErrors(List<String> errors) {
         this.errors = errors;
+    }
+
+    public Boolean getGeometryValidated() {
+        return isGeometryValidated;
+    }
+
+    public void setGeometryValidated(Boolean geometryValidated) {
+        isGeometryValidated = geometryValidated;
+    }
+
+    public Boolean getSkipErrors() {
+        return skipErrors;
+    }
+
+    public void setSkipErrors(Boolean skipErrors) {
+        this.skipErrors = skipErrors;
+    }
+
+    public String getLog() {
+        return log;
+    }
+
+    public void setLog(String log) {
+        this.log = log;
+    }
+
+    public String getReferenceId() {
+        return referenceId;
+    }
+
+    public void setReferenceId(String referenceId) {
+        this.referenceId = referenceId;
     }
 }
