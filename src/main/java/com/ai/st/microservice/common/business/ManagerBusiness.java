@@ -58,13 +58,29 @@ public final class ManagerBusiness {
         try {
             List<MicroserviceManagerProfileDto> managerProfiles = managerClient.findProfilesByUser(userCode);
             MicroserviceManagerProfileDto profileDirector = managerProfiles.stream()
-                    .filter(profileDto -> profileDto.getId().equals(RoleBusiness.SUB_ROLE_DIRECTOR)).findAny()
+                    .filter(profileDto -> profileDto.getId().equals(RoleBusiness.SUB_ROLE_DIRECTOR_MANAGER)).findAny()
                     .orElse(null);
-            if (profileDirector instanceof MicroserviceManagerProfileDto) {
+            if (profileDirector != null) {
                 isDirector = true;
             }
         } catch (FeignException e) {
             log.error("No se ha podido verificar si el usuario es un director(gestor): " + e.getMessage());
+        }
+        return isDirector;
+    }
+
+    public boolean userManagerIsSINIC(Long userCode) {
+        boolean isDirector = false;
+        try {
+            List<MicroserviceManagerProfileDto> managerProfiles = managerClient.findProfilesByUser(userCode);
+            MicroserviceManagerProfileDto profileDirector = managerProfiles.stream()
+                    .filter(profileDto -> profileDto.getId().equals(RoleBusiness.SUB_ROLE_SINIC_MANAGER)).findAny()
+                    .orElse(null);
+            if (profileDirector != null) {
+                isDirector = true;
+            }
+        } catch (FeignException e) {
+            log.error("No se ha podido verificar si el usuario es un SINIC(gestor): " + e.getMessage());
         }
         return isDirector;
     }
