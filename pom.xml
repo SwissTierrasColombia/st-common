@@ -5,7 +5,7 @@
 
     <groupId>com.ai.st.microservice.common</groupId>
     <artifactId>st-common</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.6</version>
     <name>st-common</name>
     <description>Microservice common</description>
 
