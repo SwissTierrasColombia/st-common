@@ -19,6 +19,8 @@ public class MicroserviceUserDto implements Serializable {
     private Date createdAt;
     private Date updatedAt;
     private List<MicroserviceRoleDto> roles;
+    private Integer amountSuccessfulLogins;
+    private Date lastLogin;
 
     public MicroserviceUserDto() {
         this.roles = new ArrayList<>();
@@ -114,4 +116,19 @@ public class MicroserviceUserDto implements Serializable {
         this.roles = roles;
     }
 
+    public Integer getAmountSuccessfulLogins() {
+        return amountSuccessfulLogins;
+    }
+
+    public void setAmountSuccessfulLogins(Integer amountSuccessfulLogins) {
+        this.amountSuccessfulLogins = amountSuccessfulLogins;
+    }
+
+    public Date getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
+    }
 }
