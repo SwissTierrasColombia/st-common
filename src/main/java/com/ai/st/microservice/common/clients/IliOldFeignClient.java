@@ -20,8 +20,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public interface IliOldFeignClient {
 
     @PostMapping(value = "/api/ili/ilivalidator/v1/validate/background", consumes = APPLICATION_JSON_VALUE)
-    void startValidation(
-            @RequestBody MicroserviceIlivalidatorBackgroundDto data);
+    void startValidation(@RequestBody MicroserviceIlivalidatorBackgroundDto data);
 
     class Configuration {
 

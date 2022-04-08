@@ -3,6 +3,7 @@ package com.ai.st.microservice.common.business;
 import com.ai.st.microservice.common.clients.ProviderFeignClient;
 import com.ai.st.microservice.common.dto.providers.MicroserviceProviderDto;
 import com.ai.st.microservice.common.dto.providers.MicroserviceProviderRoleDto;
+import com.ai.st.microservice.common.services.SCMTracing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,9 @@ public final class SupplyProviderBusiness {
         try {
             providerDto = providerClient.findById(providerId);
         } catch (Exception e) {
-            log.error("No se podido consultar el proveedor: " + e.getMessage());
+            String messageError = String.format("Error consultando el proveedor  %d: %s", providerId, e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return providerDto;
     }
@@ -33,7 +36,10 @@ public final class SupplyProviderBusiness {
         try {
             providerDto = providerClient.findByUserCode(userCode);
         } catch (Exception e) {
-            log.error("No se ha podido consultar el proveedor: " + e.getMessage());
+            String messageError = String.format("Error consultando el proveedor a partir del usuario técnico  %d: %s",
+                    userCode, e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return providerDto;
     }
@@ -43,7 +49,11 @@ public final class SupplyProviderBusiness {
         try {
             providerDto = providerClient.findProviderByAdministrator(userCode);
         } catch (Exception e) {
-            log.error("No se ha podido consultar el proveedor: " + e.getMessage());
+            String messageError = String.format(
+                    "Error consultando el proveedor a partir del usuario administrador  %d: %s", userCode,
+                    e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return providerDto;
     }
@@ -67,7 +77,10 @@ public final class SupplyProviderBusiness {
                 return true;
             }
         } catch (Exception e) {
-            log.error("No se ha podido verificar si el usuario es un director(proveedor): " + e.getMessage());
+            String messageError = String.format("Error verificando si el usuario %d es un director(proveedor): %s",
+                    userCode, e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return false;
     }
@@ -82,7 +95,10 @@ public final class SupplyProviderBusiness {
                 return true;
             }
         } catch (Exception e) {
-            log.error("No se ha podido verificar si el usuario es un delegado(proveedor): " + e.getMessage());
+            String messageError = String.format("Error verificando si el usuario %d es un delegado(proveedor): %s",
+                    userCode, e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return false;
     }

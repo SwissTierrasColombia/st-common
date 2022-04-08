@@ -4,20 +4,20 @@ import java.io.Serializable;
 
 public class MicroserviceCancelTaskDto implements Serializable {
 
-	private static final long serialVersionUID = -8968447263161444063L;
+    private static final long serialVersionUID = -8968447263161444063L;
 
-	private String reason;
+    private String reason;
 
-	public MicroserviceCancelTaskDto() {
+    public MicroserviceCancelTaskDto() {
 
-	}
+    }
 
-	public String getReason() {
-		return reason;
-	}
+    public String getReason() {
+        return reason;
+    }
 
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
 
 }

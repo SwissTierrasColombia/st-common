@@ -33,8 +33,7 @@ public interface ReportFeignClient {
             @RequestBody MicroserviceRequestReportDeliveryManagerDto data);
 
     @PostMapping(value = "/api/reports/v1/reports/supplies-snr", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceReportInformationDto createReportSuppliesSNR(
-            @RequestBody MicroserviceRequestReportSNRSuppliesDto data);
+    MicroserviceReportInformationDto createReportSuppliesSNR(@RequestBody MicroserviceRequestReportSNRSuppliesDto data);
 
     class Configuration {
 

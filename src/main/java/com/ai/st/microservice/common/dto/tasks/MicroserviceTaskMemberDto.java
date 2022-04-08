@@ -39,5 +39,4 @@ public class MicroserviceTaskMemberDto implements Serializable {
         this.createdAt = createdAt;
     }
 
-
 }

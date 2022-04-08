@@ -20,64 +20,51 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public interface OperatorFeignClient {
 
     @GetMapping("/api/operators/v1/operators/{operatorId}")
-    MicroserviceOperatorDto findById(
-            @PathVariable(name = "operatorId") Long operatorId);
+    MicroserviceOperatorDto findById(@PathVariable(name = "operatorId") Long operatorId);
 
     @PostMapping(value = "/api/operators/v1/operators/{operatorId}/deliveries", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceDeliveryDto createDelivery(
-            @PathVariable(name = "operatorId") Long operatorId,
+    MicroserviceDeliveryDto createDelivery(@PathVariable(name = "operatorId") Long operatorId,
             @RequestBody MicroserviceCreateDeliveryDto data);
 
     @GetMapping("/api/operators/v1/operators/{operatorId}/deliveries")
-    List<MicroserviceDeliveryDto> findDeliveriesByOperator(
-            @PathVariable(name = "operatorId") Long operatorId,
+    List<MicroserviceDeliveryDto> findDeliveriesByOperator(@PathVariable(name = "operatorId") Long operatorId,
             @RequestParam(name = "municipality", required = false) String municipalityCode);
 
     @GetMapping("api/operators/v1/users/{userCode}/operators")
-    MicroserviceOperatorDto findByUserCode(
-            @PathVariable(name = "userCode") Long userCode);
+    MicroserviceOperatorDto findByUserCode(@PathVariable(name = "userCode") Long userCode);
 
     @GetMapping("/api/operators/v1/operators/{operatorId}/deliveries")
-    List<MicroserviceDeliveryDto> findDeliveriesActivesByOperator(
-            @PathVariable(name = "operatorId") Long operatorId,
+    List<MicroserviceDeliveryDto> findDeliveriesActivesByOperator(@PathVariable(name = "operatorId") Long operatorId,
             @RequestParam(name = "active", required = false) Boolean isActive);
 
     @PutMapping(value = "/api/operators/v1/deliveries/{deliveryId}/supplies/{supplyId}", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceDeliveryDto updateSupplyDelivered(
-            @PathVariable(name = "deliveryId") Long deliveryId,
+    MicroserviceDeliveryDto updateSupplyDelivered(@PathVariable(name = "deliveryId") Long deliveryId,
             @PathVariable(name = "supplyId") Long supplyId,
             @RequestBody MicroserviceUpdateDeliveredSupplyDto updateSupply);
 
     @PutMapping(value = "/api/operators/v1/deliveries/{deliveryId}/disable", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceDeliveryDto disableDelivery(
-            @PathVariable(name = "deliveryId") Long deliveryId);
+    MicroserviceDeliveryDto disableDelivery(@PathVariable(name = "deliveryId") Long deliveryId);
 
     @GetMapping("/api/operators/v1/deliveries/{deliveryId}")
-    MicroserviceDeliveryDto findDeliveryById(
-            @PathVariable(name = "deliveryId") Long deliveryId);
+    MicroserviceDeliveryDto findDeliveryById(@PathVariable(name = "deliveryId") Long deliveryId);
 
     @PostMapping(value = "/api/operators/v1/users", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceOperatorDto addUserToOperator(
-            @RequestBody MicroserviceAddUserToOperatorDto requestAddUser);
+    MicroserviceOperatorDto addUserToOperator(@RequestBody MicroserviceAddUserToOperatorDto requestAddUser);
 
     @GetMapping("/api/operators/v1/operators/{operatorId}/users")
-    List<MicroserviceOperatorUserDto> getUsersByOperator(
-            @PathVariable(name = "operatorId") Long operatorId);
+    List<MicroserviceOperatorUserDto> getUsersByOperator(@PathVariable(name = "operatorId") Long operatorId);
 
     @PutMapping(value = "/api/operators/v1/deliveries/{deliveryId}", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceDeliveryDto updateDelivery(
-            @PathVariable(name = "deliveryId") Long deliveryId,
+    MicroserviceDeliveryDto updateDelivery(@PathVariable(name = "deliveryId") Long deliveryId,
             @RequestBody MicroserviceUpdateDeliveryDto data);
 
     @GetMapping("/api/operators/v1/operators/{operatorId}/deliveries")
-    List<MicroserviceDeliveryDto> findDeliveriesByOperator(
-            @PathVariable(name = "operatorId") Long operatorId,
+    List<MicroserviceDeliveryDto> findDeliveriesByOperator(@PathVariable(name = "operatorId") Long operatorId,
             @RequestParam(name = "municipality", required = false) String municipalityCode,
             @RequestParam(name = "active", required = false) Boolean active);
 
     @GetMapping("/api/operators/v1/deliveries/managers/{managerId}")
-    List<MicroserviceDeliveryDto> findDeliveriesByManager(
-            @PathVariable(name = "managerId") Long managerId);
+    List<MicroserviceDeliveryDto> findDeliveriesByManager(@PathVariable(name = "managerId") Long managerId);
 
     class Configuration {
 

@@ -6,29 +6,29 @@ import java.util.List;
 
 public class MicroserviceManagerUserDto implements Serializable {
 
-	private static final long serialVersionUID = 130761780294600808L;
+    private static final long serialVersionUID = 130761780294600808L;
 
-	private Long userCode;
-	private List<MicroserviceManagerProfileDto> profiles;
+    private Long userCode;
+    private List<MicroserviceManagerProfileDto> profiles;
 
-	public MicroserviceManagerUserDto() {
-		this.profiles = new ArrayList<MicroserviceManagerProfileDto>();
-	}
+    public MicroserviceManagerUserDto() {
+        this.profiles = new ArrayList<MicroserviceManagerProfileDto>();
+    }
 
-	public Long getUserCode() {
-		return userCode;
-	}
+    public Long getUserCode() {
+        return userCode;
+    }
 
-	public void setUserCode(Long userCode) {
-		this.userCode = userCode;
-	}
+    public void setUserCode(Long userCode) {
+        this.userCode = userCode;
+    }
 
-	public List<MicroserviceManagerProfileDto> getProfiles() {
-		return profiles;
-	}
+    public List<MicroserviceManagerProfileDto> getProfiles() {
+        return profiles;
+    }
 
-	public void setProfiles(List<MicroserviceManagerProfileDto> profiles) {
-		this.profiles = profiles;
-	}
+    public void setProfiles(List<MicroserviceManagerProfileDto> profiles) {
+        this.profiles = profiles;
+    }
 
 }
