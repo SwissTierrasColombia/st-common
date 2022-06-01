@@ -6,66 +6,66 @@ import java.util.List;
 
 public class MicroserviceCreateRequestDto implements Serializable {
 
-	private static final long serialVersionUID = 1848871808401415553L;
+    private static final long serialVersionUID = 1848871808401415553L;
 
-	private String deadline;
-	private Long providerId;
-	private List<MicroserviceRequestEmitterDto> emitters;
-	private List<MicroserviceTypeSupplyRequestedDto> supplies;
-	private String municipalityCode;
-	private String packageLabel;
+    private String deadline;
+    private Long providerId;
+    private List<MicroserviceRequestEmitterDto> emitters;
+    private List<MicroserviceTypeSupplyRequestedDto> supplies;
+    private String municipalityCode;
+    private String packageLabel;
 
-	public MicroserviceCreateRequestDto() {
-		supplies = new ArrayList<>();
-		emitters = new ArrayList<>();
-	}
+    public MicroserviceCreateRequestDto() {
+        supplies = new ArrayList<>();
+        emitters = new ArrayList<>();
+    }
 
-	public String getDeadline() {
-		return deadline;
-	}
+    public String getDeadline() {
+        return deadline;
+    }
 
-	public void setDeadline(String deadline) {
-		this.deadline = deadline;
-	}
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
 
-	public Long getProviderId() {
-		return providerId;
-	}
+    public Long getProviderId() {
+        return providerId;
+    }
 
-	public void setProviderId(Long providerId) {
-		this.providerId = providerId;
-	}
+    public void setProviderId(Long providerId) {
+        this.providerId = providerId;
+    }
 
-	public List<MicroserviceTypeSupplyRequestedDto> getSupplies() {
-		return supplies;
-	}
+    public List<MicroserviceTypeSupplyRequestedDto> getSupplies() {
+        return supplies;
+    }
 
-	public void setSupplies(List<MicroserviceTypeSupplyRequestedDto> supplies) {
-		this.supplies = supplies;
-	}
+    public void setSupplies(List<MicroserviceTypeSupplyRequestedDto> supplies) {
+        this.supplies = supplies;
+    }
 
-	public List<MicroserviceRequestEmitterDto> getEmitters() {
-		return emitters;
-	}
+    public List<MicroserviceRequestEmitterDto> getEmitters() {
+        return emitters;
+    }
 
-	public void setEmitters(List<MicroserviceRequestEmitterDto> emitters) {
-		this.emitters = emitters;
-	}
+    public void setEmitters(List<MicroserviceRequestEmitterDto> emitters) {
+        this.emitters = emitters;
+    }
 
-	public String getMunicipalityCode() {
-		return municipalityCode;
-	}
+    public String getMunicipalityCode() {
+        return municipalityCode;
+    }
 
-	public void setMunicipalityCode(String municipalityCode) {
-		this.municipalityCode = municipalityCode;
-	}
+    public void setMunicipalityCode(String municipalityCode) {
+        this.municipalityCode = municipalityCode;
+    }
 
-	public String getPackageLabel() {
-		return packageLabel;
-	}
+    public String getPackageLabel() {
+        return packageLabel;
+    }
 
-	public void setPackageLabel(String packageLabel) {
-		this.packageLabel = packageLabel;
-	}
+    public void setPackageLabel(String packageLabel) {
+        this.packageLabel = packageLabel;
+    }
 
 }

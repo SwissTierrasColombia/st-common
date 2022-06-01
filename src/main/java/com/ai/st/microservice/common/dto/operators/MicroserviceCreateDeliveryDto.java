@@ -6,47 +6,47 @@ import java.util.List;
 
 public class MicroserviceCreateDeliveryDto implements Serializable {
 
-	private static final long serialVersionUID = 6501515533475244560L;
+    private static final long serialVersionUID = 6501515533475244560L;
 
-	private Long managerCode;
-	private String municipalityCode;
-	private String observations;
-	private List<MicroserviceCreateDeliverySupplyDto> supplies;
+    private Long managerCode;
+    private String municipalityCode;
+    private String observations;
+    private List<MicroserviceCreateDeliverySupplyDto> supplies;
 
-	public MicroserviceCreateDeliveryDto() {
-		this.supplies = new ArrayList<MicroserviceCreateDeliverySupplyDto>();
-	}
+    public MicroserviceCreateDeliveryDto() {
+        this.supplies = new ArrayList<MicroserviceCreateDeliverySupplyDto>();
+    }
 
-	public Long getManagerCode() {
-		return managerCode;
-	}
+    public Long getManagerCode() {
+        return managerCode;
+    }
 
-	public void setManagerCode(Long managerCode) {
-		this.managerCode = managerCode;
-	}
+    public void setManagerCode(Long managerCode) {
+        this.managerCode = managerCode;
+    }
 
-	public String getMunicipalityCode() {
-		return municipalityCode;
-	}
+    public String getMunicipalityCode() {
+        return municipalityCode;
+    }
 
-	public void setMunicipalityCode(String municipalityCode) {
-		this.municipalityCode = municipalityCode;
-	}
+    public void setMunicipalityCode(String municipalityCode) {
+        this.municipalityCode = municipalityCode;
+    }
 
-	public String getObservations() {
-		return observations;
-	}
+    public String getObservations() {
+        return observations;
+    }
 
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
 
-	public List<MicroserviceCreateDeliverySupplyDto> getSupplies() {
-		return supplies;
-	}
+    public List<MicroserviceCreateDeliverySupplyDto> getSupplies() {
+        return supplies;
+    }
 
-	public void setSupplies(List<MicroserviceCreateDeliverySupplyDto> supplies) {
-		this.supplies = supplies;
-	}
+    public void setSupplies(List<MicroserviceCreateDeliverySupplyDto> supplies) {
+        this.supplies = supplies;
+    }
 
 }

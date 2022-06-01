@@ -84,5 +84,4 @@ public class MicroserviceSupplyDeliveryDto implements Serializable {
         this.downloadReportUrl = downloadReportUrl;
     }
 
-
 }

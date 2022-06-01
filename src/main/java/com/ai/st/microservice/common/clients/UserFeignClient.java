@@ -26,43 +26,30 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public interface UserFeignClient {
 
     @GetMapping("/api/administration/v1/users/{id}")
-    MicroserviceUserDto findById(
-            @PathVariable("id") Long id);
+    MicroserviceUserDto findById(@PathVariable("id") Long id);
 
     @GetMapping("/api/administration/v1/users/token")
-    MicroserviceUserDto findByToken(
-            @RequestParam(name = "token") String token);
+    MicroserviceUserDto findByToken(@RequestParam(name = "token") String token);
 
     @PostMapping(value = "/api/administration/v1/users", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceUserDto createUser(
-            @RequestBody MicroserviceCreateUserDto user)
-            throws BusinessException;
+    MicroserviceUserDto createUser(@RequestBody MicroserviceCreateUserDto user) throws BusinessException;
 
     @PostMapping(value = "/api/administration/v1/users/{id}/reset-password", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceUserDto changeUserPassword(
-            @PathVariable(name = "id") Long userId,
-            @RequestBody MicroserviceChangePasswordDto requestChangePassword)
-            throws BusinessException;
+    MicroserviceUserDto changeUserPassword(@PathVariable(name = "id") Long userId,
+            @RequestBody MicroserviceChangePasswordDto requestChangePassword) throws BusinessException;
 
     @PutMapping(value = "/api/administration/v1/users/{id}", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceUserDto updateUser(
-            @PathVariable(name = "id") Long id,
-            @RequestBody MicroserviceUpdateUserDto updateUser)
-            throws BusinessException;
+    MicroserviceUserDto updateUser(@PathVariable(name = "id") Long id,
+            @RequestBody MicroserviceUpdateUserDto updateUser) throws BusinessException;
 
     @PutMapping(value = "/api/administration/v1/users/{userId}/disable", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceUserDto disableUser(
-            @PathVariable(name = "userId") Long userId)
-            throws BusinessException;
+    MicroserviceUserDto disableUser(@PathVariable(name = "userId") Long userId) throws BusinessException;
 
     @PutMapping(value = "/api/administration/v1/users/{userId}/enable", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceUserDto enableUser(
-            @PathVariable(name = "userId") Long userId)
-            throws BusinessException;
+    MicroserviceUserDto enableUser(@PathVariable(name = "userId") Long userId) throws BusinessException;
 
     @GetMapping("/api/administration/v1/users")
-    List<MicroserviceUserDto> findUsersByRoles(
-            @RequestParam(name = "roles", required = false) List<Long> roles);
+    List<MicroserviceUserDto> findUsersByRoles(@RequestParam(name = "roles", required = false) List<Long> roles);
 
     class Configuration {
 

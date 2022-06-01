@@ -3,7 +3,8 @@ package com.ai.st.microservice.common.dto.reports;
 import java.io.Serializable;
 import java.util.List;
 
-public final class MicroserviceRequestReportSNRSuppliesDto extends MicroserviceReportRequestDto implements Serializable {
+public final class MicroserviceRequestReportSNRSuppliesDto extends MicroserviceReportRequestDto
+        implements Serializable {
 
     private List<MicroserviceRequestReportSNRDto> requests;
     private String createdAt;
@@ -26,5 +27,5 @@ public final class MicroserviceRequestReportSNRSuppliesDto extends MicroserviceR
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
-    
+
 }

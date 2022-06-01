@@ -1,8 +1,11 @@
 package com.ai.st.microservice.common.dto.managers;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MicroserviceManagerDto implements Serializable {
 
     private static final long serialVersionUID = 7175035438779604827L;

@@ -5,6 +5,7 @@ import com.ai.st.microservice.common.dto.managers.MicroserviceManagerDto;
 import com.ai.st.microservice.common.dto.managers.MicroserviceManagerProfileDto;
 import com.ai.st.microservice.common.dto.managers.MicroserviceManagerUserDto;
 
+import com.ai.st.microservice.common.services.SCMTracing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,9 @@ public final class ManagerBusiness {
         try {
             managerDto = managerClient.findById(managerId);
         } catch (Exception e) {
-            log.error("No se ha podido consultar el gestor: " + e.getMessage());
+            String messageError = String.format("Error consultando el gestor %d : %s", managerId, e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return managerDto;
     }
@@ -38,7 +41,10 @@ public final class ManagerBusiness {
         try {
             managerDto = managerClient.findByUserCode(userCode);
         } catch (Exception e) {
-            log.error("No se ha podido consultar el gestor: " + e.getMessage());
+            String messageError = String.format("Error consultando el gestor a partir del usuario %d : %s", userCode,
+                    e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return managerDto;
     }
@@ -48,7 +54,10 @@ public final class ManagerBusiness {
         try {
             users = managerClient.findUsersByManager(managerId, profiles);
         } catch (Exception e) {
-            log.error("No se ha podido consultar el gestor: " + e.getMessage());
+            String messageError = String.format("Error consultando los usuarios del gestor %d : %s", managerId,
+                    e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return users;
     }
@@ -64,7 +73,10 @@ public final class ManagerBusiness {
                 isDirector = true;
             }
         } catch (FeignException e) {
-            log.error("No se ha podido verificar si el usuario es un director(gestor): " + e.getMessage());
+            String messageError = String.format("Error verificando si el usuario %d es un director(gestor): %s",
+                    userCode, e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return isDirector;
     }
@@ -80,7 +92,10 @@ public final class ManagerBusiness {
                 isDirector = true;
             }
         } catch (FeignException e) {
-            log.error("No se ha podido verificar si el usuario es un SINIC(gestor): " + e.getMessage());
+            String messageError = String.format("Error verificando si el usuario %d tiene el rol SINIC: %s", userCode,
+                    e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return isDirector;
     }
