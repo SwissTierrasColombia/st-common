@@ -2,20 +2,25 @@ package com.ai.st.microservice.common.dto.notifier;
 
 import java.io.Serializable;
 
-public class MicroserviceNotificationNewUserDto implements Serializable {
-
-    private static final long serialVersionUID = 3050930525504636650L;
+public class MicroserviceNotificationDto implements Serializable {
 
     private Long userCode;
     private String email;
+    private String subject;
+    private String message;
     private String type;
     private int status;
-    private String user;
-    private String password;
-    private String profile;
 
-    public MicroserviceNotificationNewUserDto() {
+    public MicroserviceNotificationDto() {
 
+    }
+
+    public MicroserviceNotificationDto(Long userCode, String email, String subject, String message, String type) {
+        this.userCode = userCode;
+        this.email = email;
+        this.message = message;
+        this.type = type;
+        this.subject = subject;
     }
 
     public Long getUserCode() {
@@ -34,6 +39,14 @@ public class MicroserviceNotificationNewUserDto implements Serializable {
         this.email = email;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public String getType() {
         return type;
     }
@@ -50,28 +63,12 @@ public class MicroserviceNotificationNewUserDto implements Serializable {
         this.status = status;
     }
 
-    public String getUser() {
-        return user;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getProfile() {
-        return profile;
-    }
-
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
 }

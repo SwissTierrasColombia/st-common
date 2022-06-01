@@ -11,6 +11,10 @@ public class BasicResponseDto implements Serializable {
 
     }
 
+    public BasicResponseDto(String message) {
+        this.message = message;
+    }
+
     public BasicResponseDto(String message, Integer code) {
         super();
         this.message = message;

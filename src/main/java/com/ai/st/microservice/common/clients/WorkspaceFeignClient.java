@@ -25,7 +25,7 @@ public interface WorkspaceFeignClient {
 
     @GetMapping("/api/workspaces/v1/workspaces/managers/{managerCode}/municipalities/{municipalityCode}")
     MicroserviceWorkspaceManagerDto findWorskpaceByManagerAndMunicipality(@PathVariable("managerCode") Long managerCode,
-                                                                          @PathVariable("municipalityCode") String municipalityCode);
+            @PathVariable("municipalityCode") String municipalityCode);
 
     @GetMapping("/api/workspaces/v1/municipalities/code/{municipalityCode}")
     MicroserviceMunicipalityDto findMunicipalityByCode(@PathVariable("municipalityCode") String municipalityCode);

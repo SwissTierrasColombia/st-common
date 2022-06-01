@@ -26,29 +26,23 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public interface ManagerFeignClient {
 
     @GetMapping("/api/managers/v1/managers/{managerId}")
-    MicroserviceManagerDto findById(
-            @PathVariable("managerId") Long managerId);
+    MicroserviceManagerDto findById(@PathVariable("managerId") Long managerId);
 
     @GetMapping("/api/managers/v1/users/{userCode}/managers")
-    MicroserviceManagerDto findByUserCode(
-            @PathVariable("userCode") Long userCode);
+    MicroserviceManagerDto findByUserCode(@PathVariable("userCode") Long userCode);
 
     @PostMapping(value = "/api/managers/v1/users", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceManagerUserDto addUserToManager(
-            @RequestBody MicroserviceAddUserToManagerDto data);
+    MicroserviceManagerUserDto addUserToManager(@RequestBody MicroserviceAddUserToManagerDto data);
 
     @GetMapping("/api/managers/v1/users/{userCode}/profiles")
-    List<MicroserviceManagerProfileDto> findProfilesByUser(
-            @PathVariable("userCode") Long userCode);
+    List<MicroserviceManagerProfileDto> findProfilesByUser(@PathVariable("userCode") Long userCode);
 
     @GetMapping("/api/managers/v1/managers/{managerId}/users")
-    List<MicroserviceManagerUserDto> findUsersByManager(
-            @PathVariable("managerId") Long managerId,
+    List<MicroserviceManagerUserDto> findUsersByManager(@PathVariable("managerId") Long managerId,
             @RequestParam(required = false, name = "profiles") List<Long> profiles);
 
     @DeleteMapping(value = "/api/managers/v1/users", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceManagerUserDto removeUserToManager(
-            @RequestBody MicroserviceAddUserToManagerDto data)
+    MicroserviceManagerUserDto removeUserToManager(@RequestBody MicroserviceAddUserToManagerDto data)
             throws BusinessException;
 
     @GetMapping(value = "/api/managers/v1/profiles", consumes = APPLICATION_JSON_VALUE)

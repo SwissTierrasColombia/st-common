@@ -4,29 +4,29 @@ import java.io.Serializable;
 
 public class MicroserviceUpdatePetitionDto implements Serializable {
 
-	private static final long serialVersionUID = -3550075435340827828L;
+    private static final long serialVersionUID = -3550075435340827828L;
 
-	private Long petitionStateId;
-	private String justitication;
+    private Long petitionStateId;
+    private String justitication;
 
-	public MicroserviceUpdatePetitionDto() {
+    public MicroserviceUpdatePetitionDto() {
 
-	}
+    }
 
-	public Long getPetitionStateId() {
-		return petitionStateId;
-	}
+    public Long getPetitionStateId() {
+        return petitionStateId;
+    }
 
-	public void setPetitionStateId(Long petitionStateId) {
-		this.petitionStateId = petitionStateId;
-	}
+    public void setPetitionStateId(Long petitionStateId) {
+        this.petitionStateId = petitionStateId;
+    }
 
-	public String getJustitication() {
-		return justitication;
-	}
+    public String getJustitication() {
+        return justitication;
+    }
 
-	public void setJustitication(String justitication) {
-		this.justitication = justitication;
-	}
+    public void setJustitication(String justitication) {
+        this.justitication = justitication;
+    }
 
 }

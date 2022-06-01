@@ -1,9 +1,9 @@
 package com.ai.st.microservice.common.business;
 
-
 import com.ai.st.microservice.common.clients.OperatorFeignClient;
 import com.ai.st.microservice.common.dto.operators.MicroserviceOperatorDto;
 import com.ai.st.microservice.common.dto.operators.MicroserviceOperatorUserDto;
+import com.ai.st.microservice.common.services.SCMTracing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,9 @@ public class OperatorBusiness {
         try {
             operatorDto = operatorClient.findById(operatorId);
         } catch (Exception e) {
-            log.error("Error consultando operador: " + e.getMessage());
+            String messageError = String.format("Error consultando el operador %d: %s", operatorId, e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return operatorDto;
     }
@@ -35,18 +37,23 @@ public class OperatorBusiness {
         try {
             users = operatorClient.getUsersByOperator(operatorId);
         } catch (Exception e) {
-            log.error("Error consultando usuarios por operador: " + e.getMessage());
+            String messageError = String.format("Error consultando los usuarios del operador %d: %s", operatorId,
+                    e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return users;
     }
-
 
     public MicroserviceOperatorDto getOperatorByUserCode(Long userCode) {
         MicroserviceOperatorDto operatorDto;
         try {
             operatorDto = operatorClient.findByUserCode(userCode);
         } catch (Exception e) {
-            log.error("Error consultando operador: " + e.getMessage());
+            String messageError = String.format("Error consultando el operador a partir del usuario %d: %s", userCode,
+                    e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
             return null;
         }
         return operatorDto;

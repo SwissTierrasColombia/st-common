@@ -4,6 +4,7 @@ import com.ai.st.microservice.common.clients.UserFeignClient;
 import com.ai.st.microservice.common.dto.administration.MicroserviceRoleDto;
 import com.ai.st.microservice.common.dto.administration.MicroserviceUserDto;
 
+import com.ai.st.microservice.common.services.SCMTracing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -24,7 +25,9 @@ public class AdministrationBusiness {
         try {
             userDto = userClient.findById(userId);
         } catch (Exception e) {
-            log.info("Error consultando el usuario I: " + e.getMessage());
+            String messageError = String.format("Error consultando el usuario %d : %s", userId, e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return userDto;
     }
@@ -36,7 +39,9 @@ public class AdministrationBusiness {
             userDto = userClient.findByToken(token);
 
         } catch (Exception e) {
-            log.error("Error consultando el usuario: " + e.getMessage());
+            String messageError = String.format("Error consultando el usuario a partir del token : %s", e.getMessage());
+            SCMTracing.sendError(messageError);
+            log.error(messageError);
         }
         return userDto;
     }
@@ -68,8 +73,7 @@ public class AdministrationBusiness {
 
     public boolean isProvider(MicroserviceUserDto userDto) {
         MicroserviceRoleDto roleProvider = userDto.getRoles().stream()
-                .filter(roleDto -> roleDto.getId().equals(RoleBusiness.ROLE_SUPPLY_SUPPLIER)).findAny()
-                .orElse(null);
+                .filter(roleDto -> roleDto.getId().equals(RoleBusiness.ROLE_SUPPLY_SUPPLIER)).findAny().orElse(null);
         return roleProvider != null;
     }
 

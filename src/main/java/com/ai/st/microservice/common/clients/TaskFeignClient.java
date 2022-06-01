@@ -20,13 +20,11 @@ import feign.form.spring.SpringFormEncoder;
 
 import java.util.List;
 
-
 @FeignClient(name = "st-microservice-tasks", configuration = TaskFeignClient.Configuration.class)
 public interface TaskFeignClient {
 
     @GetMapping("/api/tasks/v1/tasks")
-    List<MicroserviceTaskDto> findByUserAndState(
-            @RequestParam(required = false, name = "member") Long memberCode,
+    List<MicroserviceTaskDto> findByUserAndState(@RequestParam(required = false, name = "member") Long memberCode,
             @RequestParam(required = false, name = "states") List<Long> taskStates);
 
     @GetMapping("/api/tasks/v1/tasks")
@@ -35,29 +33,23 @@ public interface TaskFeignClient {
             @RequestParam(required = false, name = "categories") List<Long> categories);
 
     @PostMapping(value = "/api/tasks/v1/tasks", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceTaskDto createTask(
-            @RequestBody MicroserviceCreateTaskDto createTaskDto);
+    MicroserviceTaskDto createTask(@RequestBody MicroserviceCreateTaskDto createTaskDto);
 
     @DeleteMapping("/api/tasks/v1/tasks/{taskId}/members/{memberId}/")
-    void removeMemberFromTask(
-            @PathVariable(name = "taskId") Long taskId,
+    void removeMemberFromTask(@PathVariable(name = "taskId") Long taskId,
             @PathVariable(name = "memberId") Long memberId);
 
     @GetMapping("/api/tasks/v1/tasks/{id}")
-    MicroserviceTaskDto findTaskById(
-            @PathVariable(name = "id") Long id);
+    MicroserviceTaskDto findTaskById(@PathVariable(name = "id") Long id);
 
     @PutMapping("/api/tasks/v1/tasks/{id}/start")
-    MicroserviceTaskDto startTask(
-            @PathVariable(name = "id") Long id);
+    MicroserviceTaskDto startTask(@PathVariable(name = "id") Long id);
 
     @PutMapping("/api/tasks/v1/tasks/{id}/close")
-    MicroserviceTaskDto closeTask(
-            @PathVariable(name = "id") Long id);
+    MicroserviceTaskDto closeTask(@PathVariable(name = "id") Long id);
 
     @PutMapping("/api/tasks/v1/tasks/{id}/cancel")
-    MicroserviceTaskDto cancelTask(
-            @PathVariable(name = "id") Long id,
+    MicroserviceTaskDto cancelTask(@PathVariable(name = "id") Long id,
             @RequestBody() MicroserviceCancelTaskDto cancelTaskRequest);
 
     class Configuration {

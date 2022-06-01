@@ -26,8 +26,7 @@ import java.util.List;
 public interface SupplyFeignClient {
 
     @PostMapping(value = "/api/supplies/v1/supplies", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceSupplyDto createSupply(
-            @RequestBody MicroserviceCreateSupplyDto createSupply);
+    MicroserviceSupplyDto createSupply(@RequestBody MicroserviceCreateSupplyDto createSupply);
 
     @GetMapping("/api/supplies/v1/supplies/municipality/{municipalityId}")
     List<MicroserviceSupplyDto> getSuppliesByMunicipalityCode(
@@ -43,18 +42,14 @@ public interface SupplyFeignClient {
             @RequestParam(name = "states", required = false) List<Long> states);
 
     @GetMapping("/api/supplies/v1/supplies/{supplyId}")
-    MicroserviceSupplyDto findSupplyById(
-            @PathVariable(name = "supplyId") Long supplyId);
+    MicroserviceSupplyDto findSupplyById(@PathVariable(name = "supplyId") Long supplyId);
 
     @DeleteMapping("/api/supplies/v1/supplies/{supplyId}")
-    void deleteSupplyById(
-            @PathVariable(name = "supplyId") Long supplyId);
+    void deleteSupplyById(@PathVariable(name = "supplyId") Long supplyId);
 
     @PutMapping(value = "/api/supplies/v1/supplies/{supplyId}", consumes = APPLICATION_JSON_VALUE)
-    MicroserviceSupplyDto updateSupply(
-            @PathVariable(name = "supplyId") Long supplyId,
-            @RequestBody MicroserviceUpdateSupplyDto updateSupply)
-            throws BusinessException;
+    MicroserviceSupplyDto updateSupply(@PathVariable(name = "supplyId") Long supplyId,
+            @RequestBody MicroserviceUpdateSupplyDto updateSupply) throws BusinessException;
 
     class Configuration {
 
